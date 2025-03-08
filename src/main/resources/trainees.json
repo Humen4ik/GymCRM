@@ -1,0 +1,36 @@
+{
+  "trainees": [
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "isActive": true,
+      "dateOfBirth": "1995-04-10",
+      "address": "123 Main St",
+      "userId": 101
+    },
+    {
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "isActive": true,
+      "dateOfBirth": "2000-07-22",
+      "address": "456 Oak Ave",
+      "userId": 102
+    },
+    {
+      "firstName": "Michael",
+      "lastName": "Brown",
+      "isActive": true,
+      "dateOfBirth": "1998-06-15",
+      "address": "789 Pine St",
+      "userId": 103
+    },
+    {
+      "firstName": "Emily",
+      "lastName": "Clark",
+      "isActive": true,
+      "dateOfBirth": "1997-02-28",
+      "address": "321 Elm St",
+      "userId": 104
+    }
+  ]
+}

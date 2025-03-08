@@ -1,0 +1,32 @@
+{
+  "trainers": [
+    {
+      "firstName": "Alice",
+      "lastName": "Smith",
+      "isActive": true,
+      "specialization": "Fitness Coach",
+      "userId": 1
+    },
+    {
+      "firstName": "Bob",
+      "lastName": "Johnson",
+      "isActive": true,
+      "specialization": "Strength Training",
+      "userId": 2
+    },
+    {
+      "firstName": "David",
+      "lastName": "Wilson",
+      "isActive": true,
+      "specialization": "Cardio Training",
+      "userId": 3
+    },
+    {
+      "firstName": "Sophia",
+      "lastName": "Martinez",
+      "isActive": true,
+      "specialization": "Yoga Instructor",
+      "userId": 4
+    }
+  ]
+}
