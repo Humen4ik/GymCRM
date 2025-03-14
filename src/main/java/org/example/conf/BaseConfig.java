@@ -1,5 +1,6 @@
 package org.example.conf;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.model.Trainee;
 import org.example.model.Trainer;
 import org.example.model.Training;
@@ -13,8 +14,10 @@ import java.util.Map;
 
 @Configuration
 @ComponentScan(basePackages = "org.example")
+@PropertySource("classpath:application.properties")
 public class BaseConfig {
 
+    @Bean
     public Map<String, Trainee> traineeRepo() {
         return new HashMap<>();
     }

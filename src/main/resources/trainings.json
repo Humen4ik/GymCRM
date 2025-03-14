@@ -1,0 +1,52 @@
+{
+  "trainings": [
+    {
+      "trainingName": "Morning Cardio Blast",
+      "trainerUsername": "Alice.Smith",
+      "traineeUsername": "John.Doe",
+      "dateTime": "2024-03-10T07:00:00",
+      "durationMinutes": 60,
+      "type": "CARDIO"
+    },
+    {
+      "trainingName": "Strength Power Hour",
+      "trainerUsername": "Bob.Johnson",
+      "traineeUsername": "Jane.Doe",
+      "dateTime": "2024-03-11T18:00:00",
+      "durationMinutes": 45,
+      "type": "STRENGTH"
+    },
+    {
+      "trainingName": "Evening Yoga Flow",
+      "trainerUsername": "Sophia.Martinez",
+      "traineeUsername": "Emily.Clark",
+      "dateTime": "2024-03-12T19:30:00",
+      "durationMinutes": 50,
+      "type": "YOGA"
+    },
+    {
+      "trainingName": "CrossFit High-Intensity",
+      "trainerUsername": "David.Wilson",
+      "traineeUsername": "Michael.Brown",
+      "dateTime": "2024-03-13T06:00:00",
+      "durationMinutes": 40,
+      "type": "CROSSFIT"
+    },
+    {
+      "trainingName": "Swimming Endurance",
+      "trainerUsername": "Alice.Smith",
+      "traineeUsername": "John.Doe",
+      "dateTime": "2024-03-14T09:00:00",
+      "durationMinutes": 70,
+      "type": "SWIMMING"
+    },
+    {
+      "trainingName": "Boxing Fundamentals",
+      "trainerUsername": "Bob.Johnson",
+      "traineeUsername": "Jane.Doe",
+      "dateTime": "2024-03-15T15:30:00",
+      "durationMinutes": 55,
+      "type": "BOXING"
+    }
+  ]
+}

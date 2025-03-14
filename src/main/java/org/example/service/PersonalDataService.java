@@ -2,8 +2,8 @@ package org.example.service;
 
 import org.example.model.User;
 import org.springframework.stereotype.Service;
-
 import java.security.SecureRandom;
+import java.util.List;
 
 @Service
 public class PersonalDataService {
@@ -19,8 +19,11 @@ public class PersonalDataService {
         return password.toString();
     }
 
-    public String generateUsername(User user) {
-        return user.getFirstName().concat(".").concat(user.getLastName());
+    public String generateUsername(User user, List<? extends User> userList) {
+        String username = user.getFirstName().concat(".").concat(user.getLastName());
+        long countUsersWithSameNames = userList.stream()
+                .filter(curUser -> user.getFirstName().equals(curUser.getFirstName()) && user.getLastName().equals(curUser.getLastName()))
+                .count();
+        return countUsersWithSameNames == 0 ? username : username.concat(Long.toString(countUsersWithSameNames));
     }
-
 }

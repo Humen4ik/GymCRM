@@ -5,6 +5,7 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 public class User {
     private String firstName;
     private String lastName;
