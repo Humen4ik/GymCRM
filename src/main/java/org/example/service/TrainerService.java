@@ -18,7 +18,8 @@ public class TrainerService {
     private PersonalDataService personalDataService;
 
     public Trainer save(Trainer trainer) {
-        generatePersonalInformation(trainer);
+        trainer.setUsername(personalDataService.generateUsername(trainer, getAllTrainers()));
+        trainer.setPassword(personalDataService.generatePassword());
         return trainerDao.save(trainer).orElseThrow(() -> new RuntimeException("Current trainer can not be saved"));
     }
 
@@ -26,9 +27,22 @@ public class TrainerService {
         return trainerDao.findByUsername(username).orElseThrow(() -> new RuntimeException("Trainer with username " + username + " Not Found"));
     }
 
-    public Trainer update(Trainer trainer) {
-        generatePersonalInformation(trainer);
-        return trainerDao.update(trainer);
+    public Trainer updateByUsername(Trainer newTrainer, String username) {
+        Trainer oldTrainer = findByUsername(username);
+        if (newTrainer.getFirstName() != null) {
+            oldTrainer.setFirstName(newTrainer.getFirstName());
+        }
+        if (newTrainer.getLastName() != null) {
+            oldTrainer.setLastName(newTrainer.getLastName());
+        }
+        if (newTrainer.getIsActive() != null)
+            oldTrainer.setIsActive(newTrainer.getIsActive());
+        if (newTrainer.getUserId() != null)
+            oldTrainer.setUserId(newTrainer.getUserId());
+        if (newTrainer.getSpecialization() != null)
+            oldTrainer.setSpecialization(newTrainer.getSpecialization());
+
+        return trainerDao.update(newTrainer);
     }
 
     public List<Trainer> getAllTrainers() {
@@ -38,13 +52,6 @@ public class TrainerService {
     @Autowired
     public void setPersonalDataService(PersonalDataService personalDataService) {
         this.personalDataService = personalDataService;
-    }
-
-    private void generatePersonalInformation(Trainer trainer) {
-        String username = personalDataService.generateUsername(trainer, getAllTrainers());
-        String password = trainer.getPassword();
-        trainer.setUsername(username);
-        trainer.setPassword(password);
     }
 
     public boolean existsByUsername(String newUsername) {

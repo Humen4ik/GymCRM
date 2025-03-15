@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 public class TraineeFacade {
 
     private final TraineeService service;
-//    private final GymMapper gymMapper = GymMapper.INSTANCE;
     private final TraineeMapper traineeMapper = TraineeMapper.INSTANCE;
 
     public List<TraineeDto> getAllTrainee() {
@@ -33,8 +32,8 @@ public class TraineeFacade {
         return traineeMapper.traineeToDto(service.save(traineeMapper.dtoToTrainee(dto)));
     }
 
-    public TraineeDto updateTrainee(TraineeDto dto) {
-        return traineeMapper.traineeToDto(service.update(traineeMapper.dtoToTrainee(dto)));
+    public TraineeDto updateTraineeByUsername(TraineeDto dto, String username) {
+        return traineeMapper.traineeToDto(service.update(traineeMapper.dtoToTrainee(dto), username));
     }
 
 }

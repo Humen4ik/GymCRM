@@ -2,7 +2,6 @@ package org.example.service;
 
 import lombok.RequiredArgsConstructor;
 import org.example.dao.TraineeDao;
-import org.example.dto.TraineeDto;
 import org.example.model.Trainee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,10 +42,32 @@ public class TraineeService {
         this.personalDataService = personalDataService;
     }
 
-    public Trainee update(Trainee trainee) {
+    public Trainee update(Trainee newTrainee, String username) {
         System.out.println("update trainee: service");
-        return traineeDao.update(trainee).orElseThrow(() -> new RuntimeException("update trainee failed"));
+
+        Trainee oldTrainee = getTrainee(username);
+
+        if (newTrainee.getFirstName() != null) {
+            oldTrainee.setFirstName(newTrainee.getFirstName());
+        }
+        if (newTrainee.getLastName() != null) {
+            oldTrainee.setLastName(newTrainee.getLastName());
+        }
+        if (newTrainee.getAddress() != null) {
+            oldTrainee.setAddress(newTrainee.getAddress());
+        }
+        if (newTrainee.getDateOfBirth() != null) {
+            oldTrainee.setDateOfBirth(newTrainee.getDateOfBirth());
+        }
+        if (newTrainee.getIsActive() != null)
+            oldTrainee.setIsActive(newTrainee.getIsActive());
+        if (newTrainee.getUserId() != null)
+            oldTrainee.setUserId(newTrainee.getUserId());
+
+        return traineeDao.update(oldTrainee)
+                .orElseThrow(() -> new RuntimeException("update trainee failed"));
     }
+
 
     public Long countTrainee(Trainee trainee) {
         return traineeDao.countUniqueSerialNumber(trainee.getUsername());
@@ -54,5 +75,9 @@ public class TraineeService {
 
     public boolean existsByUsername(String newUsername) {
         return traineeDao.existByUsername(newUsername);
+    }
+
+    public void mapOldTraineeToNewTrainee(Trainee oldTrainee, Trainee newTrainee) {
+
     }
 }
